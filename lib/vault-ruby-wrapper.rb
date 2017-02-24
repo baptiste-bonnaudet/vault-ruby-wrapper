@@ -20,15 +20,16 @@ module Vault
 
   def self.data_bag(secret)
     validate_name!(secret)
-    return secret_data(secret).keys
+    return secret_data(secret).keys.collect{|k| k.to_s}
   end
+  
   def self.data_bag_item(secret, item)
     validate_name!(secret)
     validate_name!(item)
 
-    i = secret_data(secret)[item.to_sym]
-    unless i.to_s.strip.empty?
-      return i
+    data = secret_data(secret)[item.to_sym]
+    unless data.to_s.strip.empty?
+      return JSON.parse(data)
     end
     raise 'item does not exist'
   end

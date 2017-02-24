@@ -1,6 +1,6 @@
 # vault-ruby-wrapper 
 
-This is a tiny gem to wrap the vault ruby api to one line call Vault generaric secrets!
+This is a tiny gem to wrap the vault ruby api to one line call Vault generic secrets!
 
 ## Installation
 Build and install gem:
